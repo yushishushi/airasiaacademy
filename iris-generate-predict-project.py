@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
-from sklearn.naive_bayes import SVC
+
 
 st.write("# Simple Iris Flower Prediction App")
 st.write("This app predicts the **Iris flower** type!")
@@ -22,12 +22,9 @@ def user_input_features():
 
 df = user_input_features() 
 
-st.subheader('User Input parameters') 
+st.subheader('User Input parameters')
+st.write(df) 
 
-
-data = sns.load_dataset('iris')
-X = data.drop(['species'],axis=1)
-Y = data.species.copy()
 
 modelsvmc = SVC() 
 modelsvmc.fit(X, Y)
