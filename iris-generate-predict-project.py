@@ -23,7 +23,7 @@ def user_input_features():
 df = user_input_features() 
 
 st.subheader('User Input parameters') 
-st.write(df)
+
 
 data = sns.load_dataset('iris')
 X = data.drop(['species'],axis=1)
