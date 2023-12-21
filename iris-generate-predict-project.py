@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import pickle 
+from tensorflow.keras.models import load_model
 
 st.write("# Simple Iris Flower Prediction App")
 st.write("This app predicts the **Iris flower** type!")
@@ -25,7 +26,9 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df) 
 
-loaded_model = pickle.load_model(open('IrisSvm.h5', 'rb'))
+
+# Load the model
+loaded_model = load_model('IrisSvm.h5')
 prediction = loaded_model.predict(df) 
 prediction_proba = loaded_model.predict_proba(df)
 
