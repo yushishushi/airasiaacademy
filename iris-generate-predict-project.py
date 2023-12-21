@@ -3,7 +3,6 @@ import pandas as pd
 import seaborn as sns
 import pickle 
 
-
 st.write("# Simple Iris Flower Prediction App")
 st.write("This app predicts the **Iris flower** type!")
 
@@ -26,12 +25,11 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df) 
 
-
-prediction = modelsvmcIris.predict(df) 
-prediction_proba = modelsvmcIris.predict_proba(df)
+loaded_model = pickle.load(open("IrisSvm.h5", "rb"))
+prediction = loaded_model.predict(df) 
+prediction_proba = loaded_model.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
-st.write(Y.unique()) 
 
 st.subheader('Prediction') 
 st.write(prediction)
