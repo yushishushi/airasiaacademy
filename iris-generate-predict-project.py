@@ -27,7 +27,7 @@ st.write(df)
 
 
 # Load the model
-loaded_model = load_model('IrisSvm.h5')
+loaded_model = pickle.load(open("IrisSvm.h5", "rb")
 prediction = loaded_model.predict(df) 
 prediction_proba = loaded_model.predict_proba(df)
 
