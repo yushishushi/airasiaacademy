@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
+import pickle 
 
 
 st.write("# Simple Iris Flower Prediction App")
@@ -25,9 +26,6 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df) 
 
-
-modelsvmc = SVC() 
-modelsvmc.fit(X, Y)
 
 prediction = modelsvmcIris.predict(df) 
 prediction_proba = modelsvmcIris.predict_proba(df)
